@@ -1,6 +1,7 @@
 package week1;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author prakashponali
@@ -12,31 +13,40 @@ public class WordCounter {
 
         String input = "Prakash is employee of Jio company, PRAKASH is from Bangalore, PRAKASH! is good in java.";
         String regex = "[^a-zA-Z0-9 ]";
-        input = input.replaceAll(regex ,"");
+        input = input.replaceAll(regex, "");
         System.out.println(getCounter(input));
 
 
     }
 
-   public static Map<Word, Integer> getCounter(final String input){
+    public static Map<Word, Integer> getCounter(final String input) {
 
         Map<Word, Integer> validator = new HashMap<>();
 
-       wordCounter(input, validator);
+        wordCounter(input, validator);
 
+/**
+ *  List<Integer> values =  validator.entrySet().stream()
+ *                .max(Map.Entry.comparingByValue())
+ *                .map(Map.Entry::getKey)
+ *                .stream().collect(Collectors.toMap(
+ *                        k -> k, v -> validator.get(k)));
+ *
+ */
 
+    validator.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).stream().collect(Collectors.toList());
 
-       List<Integer> values =  validator.values().stream().toList();
-        Integer Max = 0;
-        for(Integer value : values){
+        List<Integer> values = validator.values().stream().toList();
+        int Max = 0;
+        for (Integer value : values) {
             Max = Math.max(Max, value);
         }
         Map<Word, Integer> wordsToBeReturned = new HashMap<>();
-       for(Word word: validator.keySet()){
-           if((int) validator.get(word) == Max){
-               wordsToBeReturned.put(word, Max);
-           }
-       }
+        for (Word word : validator.keySet()) {
+            if (validator.get(word) == Max) {
+                wordsToBeReturned.put(word, Max);
+            }
+        }
 
         return wordsToBeReturned;
 
@@ -46,11 +56,11 @@ public class WordCounter {
     private static void wordCounter(final String input, final Map<Word, Integer> vaildator) {
         String[] split = input.split(" ");
 
-        for(String string : split){
+        for (String string : split) {
             Word word = new Word(string);
-            if(vaildator.containsKey(word)){
+            if (vaildator.containsKey(word)) {
                 vaildator.put(word, vaildator.get(word) + 1);
-            }else{
+            } else {
                 vaildator.put(word, 1);
             }
         }
@@ -58,7 +68,7 @@ public class WordCounter {
 
     public static class Word {
 
-        public Word(String string){
+        public Word(String string) {
             this.newString = string;
         }
 
@@ -80,8 +90,6 @@ public class WordCounter {
             return newString;
         }
     }
-
-
 
 
 }
