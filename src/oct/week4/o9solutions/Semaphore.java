@@ -1,4 +1,4 @@
-package week1;
+package oct.week4.o9solutions;
 
 import java.util.concurrent.locks.Lock;
 

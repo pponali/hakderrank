@@ -43,6 +43,7 @@ public class O9SolutionsInventoryManager {
         float inventory = 0f;
         //get the map entries till the specified bucket number.
         for (int b : inventoryTree.headMap(bucket, true).keySet()) {
+
             inventory += inventoryTree.get(b);
         }
         return inventory;
