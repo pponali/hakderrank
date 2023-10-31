@@ -1,4 +1,6 @@
-package oct.week4;
+package oct.week4.common;
+
+import oct.week4.common.SharedResource;
 
 import java.util.concurrent.locks.Lock;
 

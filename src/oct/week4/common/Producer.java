@@ -1,4 +1,4 @@
-package oct.week4;
+package oct.week4.common;
 
 import java.util.concurrent.locks.Lock;
 

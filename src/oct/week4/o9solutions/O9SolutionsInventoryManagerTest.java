@@ -1,6 +1,9 @@
 package oct.week4.o9solutions;
 
-class O9SolutionsInventoryManagerTest {
+import org.junit.jupiter.api.Test;
+
+
+public class O9SolutionsInventoryManagerTest {
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {

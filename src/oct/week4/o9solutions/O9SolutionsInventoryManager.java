@@ -2,29 +2,22 @@ package oct.week4.o9solutions;
 
 
 /**
-
-
-
-
- if Wait() is called more times than Signal(), the _currAvail variable can go negative.
-
- In the Wait() method, there's no time limit for waiting. If _currAvail is never decremented due to a lack of corresponding Signal() calls, the code can potentially wait indefinitely on Monitor.Wait(_mutex). This can result in a deadlock.
-
- There's no way to specify a timeout for the Wait() method. there should be wait method available to specify the timeout.
-
- code is not handleing the waits properly. we need to have while around wait to check the availability of the resource.
-
- */
-
-
-import java.util.TreeMap;
-
-/**
- *
+ * <img src="problem_statement.png"/>
+ * if Wait() is called more times than Signal(), the _currAvail variable can go negative.
+ * In the Wait() method, there's no time limit for waiting. If _currAvail is never decremented
+ *  due to a lack of corresponding Signal() calls, the code can potentially wait indefinitely on Monitor.Wait(_mutex). This can result in a deadlock.
+ *  There's no way to specify a timeout for the Wait() method. there should be wait method available to specify the timeout.
+ *  code is not handling the waits properly. we need to have while around wait to check the availability of the resource.
  * <img src="img.png">
  * @author prakashponali
  * @Date 24/10/23
- */
+ *
+ *
+ **/
+
+
+
+import java.util.TreeMap;
 public class O9SolutionsInventoryManager {
 
     private final TreeMap<Integer, Float> inventoryTree;
@@ -63,7 +56,7 @@ public class O9SolutionsInventoryManager {
         manager.AddDemand(2, 30);
 
         System.out.println("Inventory at bucket 2: " + manager.GetInventory(2)); // 20.0
-        System.out.println("Inventory at bucket 3: " + manager.GetInventory(3)); // -5.0
+        System.out.println("Inventory at bucket 3: " + manager.GetInventory(10)); // -5.0
     }
 
 
