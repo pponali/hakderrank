@@ -9,7 +9,7 @@ import java.util.concurrent.locks.Lock;
 class Consumer implements Runnable {
     private final SharedResourceMutex sharedResource;
     private final Lock mutex;
-    private int id;
+    private final int id;
 
     public Consumer(SharedResourceMutex sharedResource, Lock mutex, int id) {
         this.sharedResource = sharedResource;
