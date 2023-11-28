@@ -1,4 +1,4 @@
-package week4;
+package week4.sailsoftware;
 
 import java.util.Arrays;
 import java.util.Date;

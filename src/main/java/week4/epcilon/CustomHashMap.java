@@ -101,6 +101,9 @@ public class CustomHashMap<K, V> {
 
     private void removeNullKey() {
         // Handle removal of null key, similar to handling collisions
+        // Handle removal of null key, similar to handling collisions.
+
+
         // You need to implement the logic for handling null key separately.
     }
 
